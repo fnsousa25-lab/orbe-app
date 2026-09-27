@@ -3063,7 +3063,7 @@
     <script type="module">
         import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, initializeAuth, inMemoryPersistence, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { getFirestore, collection, onSnapshot, doc, setDoc, deleteDoc, getDoc, runTransaction, writeBatch } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+        import { getFirestore, collection, onSnapshot, doc, setDoc, deleteDoc, getDoc, getDocs, runTransaction, writeBatch } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
         import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-functions.js";
 
         const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -6363,11 +6363,23 @@
         }
         let authenticationGeneration=0;
         async function loadAuthenticatedProfile(user,generation=authenticationGeneration) {
-            const sessionAccessCall=httpsCallable(functions,'getSessionAccess');
-            const sessionResult=await sessionAccessCall({});
-            const p=sessionResult?.data || {};
-            if(!['master','owner','operator'].includes(p.role))throw new Error('Perfil de acesso inválido.');
-            const masterAccount=p.role==='master';
+            const profile=await getDoc(doc(db,'orbeAccess',user.uid));
+            let masterAccount=false;
+            let p=null;
+            if(profile.exists()){
+                p=profile.data();
+                if(p.active!==true||p.deleted===true)throw new Error('Acesso não provisionado, desativado ou removido. Solicite a configuração ao administrador.');
+                if(p.role==='master')throw new Error('Perfil master não autorizado.');
+                if(!['owner','operator'].includes(p.role))throw new Error('Perfil de acesso inválido.');
+            } else {
+                try {
+                    await getDocs(collection(db,'artifacts',orbeDataNamespace,'public','data','tenants'));
+                    masterAccount=true;
+                    p={role:'master',active:true,deleted:false,name:'Administrador',permissions:[]};
+                } catch(error) {
+                    throw new Error('Acesso não provisionado, desativado ou removido. Solicite a configuração ao administrador.');
+                }
+            }
             let tenant=null;
             if(p.role==='operator'&&p.tenantId==='master_admin')tenant={name:'Administração Orbe',plan:'Enterprise',active:true};
             else if(p.role!=='master'){
