@@ -3082,13 +3082,6 @@
         };
 
         const app = initializeApp(firebaseConfig);
-
-        // Firebase App Check: protege Firestore/Functions contra clientes não autorizados.
-        const appCheck = initializeAppCheck(app, {
-            provider: new ReCaptchaEnterpriseProvider('6LfysdItAAAAAIswQpusPkKQE07efmpGEqEeKfFk'),
-            isTokenAutoRefreshEnabled: true
-        });
-
         const auth = getAuth(app);
         const db = getFirestore(app);
         const functions = getFunctions(app, 'southamerica-east1');
