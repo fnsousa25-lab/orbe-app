@@ -3082,6 +3082,22 @@
         };
 
         const app = initializeApp(firebaseConfig);
+
+        // App Check em modo tolerante a falhas: se a atestação falhar,
+        // o ORBE continua carregando enquanto o enforcement estiver desativado.
+        let appCheck = null;
+        try {
+            appCheck = initializeAppCheck(app, {
+                provider: new ReCaptchaEnterpriseProvider('6LfysdItAAAAAIswQpusPkKQE07efmpGEqEeKfFk'),
+                isTokenAutoRefreshEnabled: true
+            });
+            getAppCheckToken(appCheck, false)
+                .then(() => console.info('[ORBE] App Check ativo.'))
+                .catch(error => console.warn('[ORBE] App Check não validado:', error?.code || error?.message || error));
+        } catch (error) {
+            console.warn('[ORBE] App Check indisponível; continuando sem bloquear o login:', error?.code || error?.message || error);
+        }
+
         const auth = getAuth(app);
         const db = getFirestore(app);
         const functions = getFunctions(app, 'southamerica-east1');
