@@ -1742,7 +1742,6 @@
             <div id="view-orcamentos" class="hidden space-y-5">
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <span class="text-[10px] font-black uppercase tracking-widest text-cyan-600">Starter · Comercial</span>
                         <h3 class="text-base font-black text-slate-900 mt-1">Orçamentos</h3>
                         <p class="text-xs text-slate-500">Propostas comerciais com conversão direta para venda.</p>
                     </div>
@@ -1770,7 +1769,7 @@
 
             <div id="view-vendas" class="hidden space-y-5">
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div><span class="text-[10px] font-black uppercase tracking-widest text-emerald-600">Starter · Comercial</span><h3 class="text-base font-black text-slate-900 mt-1">Vendas</h3><p class="text-xs text-slate-500">Vendas confirmadas integradas ao financeiro e às ordens de serviço.</p></div>
+                    <div><h3 class="text-base font-black text-slate-900 mt-1">Vendas</h3><p class="text-xs text-slate-500">Vendas confirmadas integradas ao financeiro e às ordens de serviço.</p></div>
                     <button onclick="window.openSaleModal()" class="px-4 py-2.5 btn-brand font-bold rounded-xl text-xs shadow-sm flex items-center gap-2"><i data-lucide="plus" class="w-4 h-4"></i> Nova venda</button>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
@@ -1789,22 +1788,22 @@
 
             <div id="view-fornecedores" class="hidden space-y-5">
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <div class="flex items-start justify-between gap-4"><div><span class="text-[10px] font-black uppercase tracking-widest text-indigo-600">Pro</span><h3 class="text-lg font-black text-slate-900 mt-1">Fornecedores</h3><p class="text-xs text-slate-500 mt-1">Base de fornecedores para compras, custos, prazos e recebimentos.</p></div><i data-lucide="truck" class="w-7 h-7 text-orange-500"></i></div>
+                    <div class="flex items-start justify-between gap-4"><div><h3 class="text-lg font-black text-slate-900 mt-1">Fornecedores</h3><p class="text-xs text-slate-500 mt-1">Base de fornecedores para compras, custos, prazos e recebimentos.</p></div><i data-lucide="truck" class="w-7 h-7 text-orange-500"></i></div>
                     <div class="mt-5 rounded-xl border border-dashed border-slate-300 p-8 text-center text-xs text-slate-500">Cadastre fornecedores para vinculá-los aos pedidos de compra.</div>
                 </div>
             </div>
 
             <div id="view-pedidos_compra" class="hidden space-y-5">
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <div class="flex items-start justify-between gap-4"><div><span class="text-[10px] font-black uppercase tracking-widest text-indigo-600">Pro</span><h3 class="text-lg font-black text-slate-900 mt-1">Pedidos de Compra</h3><p class="text-xs text-slate-500 mt-1">Controle solicitações, fornecedores, valores, status e entrada dos materiais.</p></div><i data-lucide="shopping-bag" class="w-7 h-7 text-amber-600"></i></div>
+                    <div class="flex items-start justify-between gap-4"><div><h3 class="text-lg font-black text-slate-900 mt-1">Pedidos de Compra</h3><p class="text-xs text-slate-500 mt-1">Controle solicitações, fornecedores, valores, status e entrada dos materiais.</p></div><i data-lucide="shopping-bag" class="w-7 h-7 text-amber-600"></i></div>
                     <div class="grid sm:grid-cols-4 gap-3 mt-5"><div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><b class="text-xs">Rascunho</b><p class="text-2xl font-black mt-1">0</p></div><div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><b class="text-xs">Aguardando</b><p class="text-2xl font-black mt-1">0</p></div><div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><b class="text-xs">Aprovados</b><p class="text-2xl font-black mt-1">0</p></div><div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><b class="text-xs">Recebidos</b><p class="text-2xl font-black mt-1">0</p></div></div>
                 </div>
             </div>
 
-            <div id="view-rel_vendas" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><span class="text-[10px] font-black uppercase tracking-widest text-indigo-600">Pro</span><h3 class="text-lg font-black text-slate-900 mt-1">Relatório de Vendas</h3><p class="text-xs text-slate-500 mt-1">Faturamento, ticket médio, volume de vendas e desempenho por período.</p><div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-8 text-center text-xs text-slate-500">Os indicadores serão alimentados pelas vendas registradas.</div></div></div>
-            <div id="view-rel_estoque" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><span class="text-[10px] font-black uppercase tracking-widest text-indigo-600">Pro</span><h3 class="text-lg font-black text-slate-900 mt-1">Relatório de Estoque</h3><p class="text-xs text-slate-500 mt-1">Saldos, giro, estoque mínimo, rupturas e valor imobilizado.</p><div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-8 text-center text-xs text-slate-500">Consolidação baseada no catálogo e nas movimentações de estoque.</div></div></div>
-            <div id="view-rel_clientes" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><span class="text-[10px] font-black uppercase tracking-widest text-indigo-600">Pro</span><h3 class="text-lg font-black text-slate-900 mt-1">Relatório de Clientes</h3><p class="text-xs text-slate-500 mt-1">Clientes ativos, recorrência, histórico de compras e relacionamento.</p><div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-8 text-center text-xs text-slate-500">Consolidação baseada no CRM 360° e nas vendas.</div></div></div>
-            <div id="view-rel_personalizados" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-purple-200 shadow-sm"><span class="text-[10px] font-black uppercase tracking-widest text-purple-600">Enterprise</span><h3 class="text-lg font-black text-slate-900 mt-1">Relatórios Personalizados</h3><p class="text-xs text-slate-500 mt-1">Combine métricas, filtros e dimensões para criar análises sob medida.</p><div class="mt-5 grid sm:grid-cols-3 gap-3"><div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100 text-xs font-bold">Filtros avançados</div><div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100 text-xs font-bold">Campos personalizados</div><div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100 text-xs font-bold">Exportação gerencial</div></div></div></div>
+            <div id="view-rel_vendas" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h3 class="text-lg font-black text-slate-900 mt-1">Relatório de Vendas</h3><p class="text-xs text-slate-500 mt-1">Faturamento, ticket médio, volume de vendas e desempenho por período.</p><div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-8 text-center text-xs text-slate-500">Os indicadores serão alimentados pelas vendas registradas.</div></div></div>
+            <div id="view-rel_estoque" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h3 class="text-lg font-black text-slate-900 mt-1">Relatório de Estoque</h3><p class="text-xs text-slate-500 mt-1">Saldos, giro, estoque mínimo, rupturas e valor imobilizado.</p><div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-8 text-center text-xs text-slate-500">Consolidação baseada no catálogo e nas movimentações de estoque.</div></div></div>
+            <div id="view-rel_clientes" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h3 class="text-lg font-black text-slate-900 mt-1">Relatório de Clientes</h3><p class="text-xs text-slate-500 mt-1">Clientes ativos, recorrência, histórico de compras e relacionamento.</p><div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-8 text-center text-xs text-slate-500">Consolidação baseada no CRM 360° e nas vendas.</div></div></div>
+            <div id="view-rel_personalizados" class="hidden space-y-5"><div class="bg-white p-6 rounded-2xl border border-purple-200 shadow-sm"><h3 class="text-lg font-black text-slate-900 mt-1">Relatórios Personalizados</h3><p class="text-xs text-slate-500 mt-1">Combine métricas, filtros e dimensões para criar análises sob medida.</p><div class="mt-5 grid sm:grid-cols-3 gap-3"><div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100 text-xs font-bold">Filtros avançados</div><div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100 text-xs font-bold">Campos personalizados</div><div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100 text-xs font-bold">Exportação gerencial</div></div></div></div>
 
             <div id="view-empresa" class="hidden space-y-5">
                 <form onsubmit="event.preventDefault(); window.saveCompanyData();" class="space-y-5 max-w-6xl">
@@ -1973,7 +1972,7 @@
 
             <div id="view-multiempresa" class="hidden space-y-5">
                 <div class="bg-white p-6 rounded-2xl border border-purple-200 shadow-sm">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-purple-600">Enterprise</span><h3 class="text-lg font-black text-slate-900 mt-1">Filiais & Multiempresa</h3><p class="text-xs text-slate-500 mt-1">Gerencie múltiplas empresas ou unidades com visão consolidada e troca de contexto.</p>
+                    <h3 class="text-lg font-black text-slate-900 mt-1">Filiais & Multiempresa</h3><p class="text-xs text-slate-500 mt-1">Gerencie múltiplas empresas ou unidades com visão consolidada e troca de contexto.</p>
                     <div class="mt-5 rounded-xl border border-dashed border-purple-200 bg-purple-50/30 p-8 text-center text-xs text-slate-500">A empresa principal será a base para adicionar filiais e novas organizações.</div>
                 </div>
             </div>
@@ -2017,7 +2016,6 @@
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
                     <div class="flex items-center justify-between gap-4">
                         <div>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-indigo-600">Pro · Estoque</span>
                             <h3 class="text-base font-black text-slate-900 mt-1">Movimentações de Estoque</h3>
                             <p class="text-xs text-slate-500">Auditoria de entradas, saídas por venda e ajustes de estoque.</p>
                         </div>
