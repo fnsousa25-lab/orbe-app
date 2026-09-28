@@ -6409,6 +6409,14 @@
             clearTenantState();authenticatedProfile=p;
             isMasterAdmin=p.role==='master';isOperator=p.role==='operator';operatorPermissions=Array.isArray(p.permissions)?p.permissions:[];
             currentTenantId=isMasterAdmin?'master_admin':p.tenantId;currentTenantName=tenant?.name||'Administração Master Orbe';currentTenantPlan=tenant?.plan||'Enterprise';
+            console.info('[ORBE] Diagnóstico de acesso:', {
+                role: p.role,
+                profileTenantId: p.tenantId || '(master)',
+                currentTenantId,
+                currentTenantPlan,
+                isMasterAdmin,
+                isOperator
+            });
             completeSessionLogin(p.name||user.email,p.role==='master'?'Administrador Geral (Master)':p.role==='operator'?'Colaborador':'Administrador',isMasterAdmin,isOperator,operatorPermissions);
             if(isMasterAdmin){
                 masterUnsub=onSnapshot(collection(db,'artifacts',orbeDataNamespace,'public','data','tenants'),snap=>{tenantsList=snap.docs.map(d=>({...d.data(),id:d.id}));if(currentView==='saas_tenants')window.renderTenantsTable();},reportError);
